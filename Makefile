@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/13 19:58:00 by jodufour          #+#    #+#              #
-#    Updated: 2021/07/13 23:22:55 by jodufour         ###   ########.fr        #
+#    Updated: 2021/07/14 07:20:42 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,10 +47,14 @@ SRCS		=	\
 				${addprefix			\
 				${LST_SRCD},		\
 					${LST_SRCS}}	\
+				_ctx.c				\
+				_ctx_init.c			\
+				ig_atoi.c			\
+				ig_atoull.c			\
 				ig_check_args.c		\
 				ig_err_msg.c		\
+				ig_rand_gen_val.c	\
 				ig_rand_gen.c		\
-				ig_rand_gen_uniq.c	\
 				main.c
 
 ######################################

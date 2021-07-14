@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_generator.h                                    :+:      :+:    :+:   */
+/*   t_ctx.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 20:20:42 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/14 06:45:38 by jodufour         ###   ########.fr       */
+/*   Created: 2021/07/14 03:56:54 by jodufour          #+#    #+#             */
+/*   Updated: 2021/07/14 07:25:55 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INT_GENERATOR_H
-# define INT_GENERATOR_H
+#ifndef T_CTX_H
+# define T_CTX_H
 
 # include <stdbool.h>
 # include "t_int.h"
 
-int			ig_atoi(char const *s);
-int			ig_check_args(int ac, char const **av);
-int			ig_err_msg(int errno);
-int			ig_rand_gen(void);
-int			ig_rand_gen_uniq(void);
-int			ig_rand_gen_val(void);
+typedef struct s_ctx	t_ctx;
 
-t_ll_uint	ig_atoull(char const *s);
+struct s_ctx
+{
+	t_ll_uint	genSize;
+	t_ll_uint	genSizeMax;
+	int			edgeMin;
+	int			edgeMax;
+	bool		uniq;
+	int			ret;
+};
+
+void	_ctx_init(char const **av);
+
+t_ctx	*_ctx(void);
 
 #endif

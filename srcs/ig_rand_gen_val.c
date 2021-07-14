@@ -1,44 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ig_rand_gen.c                                      :+:      :+:    :+:   */
+/*   ig_rand_gen_val.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 22:03:21 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/14 10:00:16 by jodufour         ###   ########.fr       */
+/*   Created: 2021/07/14 06:29:34 by jodufour          #+#    #+#             */
+/*   Updated: 2021/07/14 09:59:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <time.h>
 #include <stdlib.h>
-#include "int_generator.h"
 #include "t_ctx.h"
-#include "t_lst.h"
-#include "e_ret.h"
 
-int	ig_rand_gen(void)
+/* DEBUG */
+#include <stdio.h>
+/*********/
+
+int	ig_rand_gen_val(void)
 {
 	t_ctx *const	ctx = _ctx();
-	t_lst			lst;
 	int				val;
 
-	ig_lst_init(&lst, NULL, NULL, 0);
-	srand(time(NULL));
-	while (_ctx()->genSize)
+	if (ctx->edgeMin == ctx->edgeMax)
+		val = ctx->edgeMin;
+	else if ((ctx->edgeMin < 0) && (ctx->edgeMax < 0))
 	{
-		val = ig_rand_gen_val();
-		if (ctx->uniq && ig_lst_is_in(&lst, val))
-			continue ;
-		ctx->ret = ig_lst_add_back(&lst, val);
-		if (ctx->ret != SUCCESS)
-		{
-			ig_lst_free(&lst);
-			return (ctx->ret);
-		}
-		--ctx->genSize;
+		val = -((rand() % ctx->genSizeMax) - ctx->edgeMax);
 	}
-	ig_lst_print(&lst);
-	ig_lst_free(&lst);
-	return (SUCCESS);
+	else if ((ctx->edgeMin < 0) && (ctx->edgeMax >= 0))
+	{
+		val = (rand() % ctx->genSizeMax) + ctx->edgeMin;
+	}
+	else if ((ctx->edgeMin >= 0) && (ctx->edgeMax >= 0))
+	{
+		val = (rand() % ctx->genSizeMax) + ctx->edgeMin;
+	}
+	return (val);
 }

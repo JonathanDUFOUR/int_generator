@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_generator.h                                    :+:      :+:    :+:   */
+/*   _ctx.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 20:20:42 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/14 06:45:38 by jodufour         ###   ########.fr       */
+/*   Created: 2021/07/14 04:20:05 by jodufour          #+#    #+#             */
+/*   Updated: 2021/07/14 07:27:22 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INT_GENERATOR_H
-# define INT_GENERATOR_H
+#include <stdlib.h>
+#include "t_ctx.h"
+#include "e_ret.h"
 
-# include <stdbool.h>
-# include "t_int.h"
+t_ctx	*_ctx(void)
+{
+	static t_ctx	ctx = {0, 0, 0, 0, false, SUCCESS};
 
-int			ig_atoi(char const *s);
-int			ig_check_args(int ac, char const **av);
-int			ig_err_msg(int errno);
-int			ig_rand_gen(void);
-int			ig_rand_gen_uniq(void);
-int			ig_rand_gen_val(void);
-
-t_ll_uint	ig_atoull(char const *s);
-
-#endif
+	return (&ctx);
+}
