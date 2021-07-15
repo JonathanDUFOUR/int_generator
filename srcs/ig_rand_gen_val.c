@@ -6,16 +6,12 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 06:29:34 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/15 13:42:00 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/15 13:43:25 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "t_ctx.h"
-
-/* DEBUG */
-#include <stdio.h>
-/*********/
 
 int	ig_rand_gen_val(void)
 {

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 06:49:03 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/14 09:56:16 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/15 13:44:05 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #include "int_generator.h"
 #include "t_ctx.h"
 #include "e_ret.h"
-
-/* DEBUG */
-#include <stdio.h>
-/*********/
 
 void	_ctx_init(char const **av)
 {
